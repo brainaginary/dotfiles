@@ -10,6 +10,7 @@ call plug#begin()
   Plug 'preservim/nerdtree'                 " NERDTree (file manager)
   Plug 'nvim-tree/nvim-web-devicons'        " Nvim-web-devicons
   Plug 'ryanoasis/vim-devicons'
+  Plug 'https://github.com/cohama/lexima.vim'
 call plug#end()
 
 " General Settings "
@@ -35,18 +36,21 @@ let g:NERDTreeWinSize = 22
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
+" Lexima "
+let g:lexima_enable_basic_rules = 1
+
 " Vim-Airline Configuration "
 let g:airline_theme = 'catppuccin'
 let g:WebDevIconsUnicodeDecorateBuffer = 1
 
 " Auto Pairs Configuration "
-let g:AutoPairsMapBS = 1          " Enable auto-pairs for backspace
-let g:AutoPairs = {
-  \ '(' : ')',
-  \ '[' : ']',
-  \ '{' : '}',
-  \ "'" : "'"
-  \ }
+" let g:AutoPairsMapBS = 1          " Enable auto-pairs for backspace
+" let g:AutoPairs = {
+"  \ '(' : ')',
+"  \ '[' : ']',
+"  \ '{' : '}',
+"  \ "'" : "'"
+"  \ }
 
 " Colorscheme "
 colorscheme catppuccin-mocha

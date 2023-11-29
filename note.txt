@@ -34,7 +34,19 @@ zathura-djvu
 texlive
 python-pynvim
 feh
-
+catppuccin-gtk-theme-mocha
+lxappearance
+gtk4
+fluent-icon-theme-git
+xorg-xbacklight
+acpi
+vscodium
+sublime-text-4
+mc
+dunst
+viewnior
+vlc
+ttf-font-awesome-5
 
 Remove:
 texlive-fontsextra
@@ -47,6 +59,25 @@ vim plug (cannot use pacman or yay)
 for neovim its
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+gtk themes:
+	fluent icon theme
+	bibata cursor theme
+	catppuccin colors
+
+For mc (midnight commander)
+mkdir -p $HOME/.local/share/mc/skins && cd $HOME/.local/share/mc/skins && git clone https://github.com/catppuccin/mc.git && ln -s -f ./mc/catppuccin.ini .
+
+Catppuccin in fcitx5:
+	git clone https://github.com/catppuccin/fcitx5.git
+mkdir -p ~/.local/share/fcitx5/themes/
+cp -r ./fcitx5/src/* ~/.local/share/fcitx5/themes
+Subsequent steps: 
+    Navigate to Fcitx5 Configuration application through your application launcher.
+    Select the Addons Tab.
+    Select the setting icon (gear-wheel) for Classical User Interface, located to the right.
+    Apply Catppuccin as the desired fcitx5 theme by navigating to Theme and later selecting Catppuccin Flavour.
+	--- Check if copying the .config file suffices
 
 
 
