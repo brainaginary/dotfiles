@@ -1,0 +1,12 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"C++11",
+		"Catppuccin color schemes",
+		"Terminus",
+	],
+}

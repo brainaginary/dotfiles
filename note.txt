@@ -79,5 +79,31 @@ Subsequent steps:
     Apply Catppuccin as the desired fcitx5 theme by navigating to Theme and later selecting Catppuccin Flavour.
 	--- Check if copying the .config file suffices
 
+Refer to this for Rofi installation
 
+zsh autosuggestions (not auto complete):
+refer to https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 
+simplescreenrecorder
+betterlockscreen
+xfce4-power-manager
+qt5
+qt5ct
+breeze
+	configure qt using gui
+	get catppuccin colorscheme for qt
+xfce4-screenshooter
+kdenlive
+digikam
+
+	using rate-mirrors, 
+	run using 
+rate-mirrors arch
+	download using
+rate-mirrors-bin
+
+discord
+
+gvfs
+gvfs-afc
+thunar-volman

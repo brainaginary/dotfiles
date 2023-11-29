@@ -1,0 +1,8 @@
+{
+	"target": "terminus_exec",
+	"auto_close": false,
+	
+    "cmd": ["python3.11", "-i", "-u", "$file"],
+    "file_regex": "^[ ]File \"(...?)\", line ([0-9]*)",
+    "selector": "source.python"
+}

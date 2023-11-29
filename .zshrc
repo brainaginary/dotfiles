@@ -17,8 +17,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme #custom_zsh_prompt
-source ~/repos/zsh-autocomplete/zsh-autocomplete.plugin.zsh #zsh_autocomplete
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export QT_QPA_PLATFORMTHEME=qt5ct
