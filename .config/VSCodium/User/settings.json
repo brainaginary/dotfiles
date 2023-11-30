@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontSize": 15,
+    "code-runner.runInTerminal": true,
+    "editor.fontFamily": "'Fira Code Medium', 'monospace', monospace"
+}

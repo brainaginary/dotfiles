@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+\pagestyle{fancy}
+	\lhead{\small{\textbf{Zhu Ziyan} - $1}}
+	\rhead{\small{$2}}
+
+	\begin{document}
+
+	\title{\fontfamily{lmss}\selectfont\bfseries $3\vspace{-0.25em}}
+	\author{\textsc{Zhu Ziyan}}
+	\date{\vspace{-0.8em} $4}
+	\maketitle
+
+	\tableofcontents
+		$5
+	\end{document}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>pre</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope> 
+</snippet>

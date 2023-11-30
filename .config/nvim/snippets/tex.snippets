@@ -1,0 +1,43 @@
+snippet beg \begin{} ... \end{} block
+	\\begin{${1:env}}
+		${0:${VISUAL}}
+	\\end{$1}
+
+snippet dm "Math" block
+	\\[
+		$1
+	\\] $0
+
+snippet f "Frac" block
+	\\frac{${1:}}{${2:}} ${3:}
+
+snippet int integral
+	\\int_{$1}^{$2} $3 \\de {$4} $5
+
+snippet pre preamble
+	\\documentclass[a4paper,11pt]{$1}
+	\\input{~/latex/Preamble/Preamble.tex}
+
+	\\theoremstyle{definition}
+	\\newtheorem{defn}{Definition}[section]
+
+	\\theoremstyle{definition}
+	\\newtheorem{claim}[defn]{Claim}
+
+	$2
+	
+snippet start "start" 
+	\\pagestyle{fancy}
+	\\lhead{\small{\textbf{Zhu Ziyan} - $1}}
+	\\rhead{\small{$2}}
+
+	\\begin{document}
+
+	\\title{\fontfamily{lmss}\selectfont\bfseries $3\vspace{-0.25em}}
+	\\author{\textsc{Zhu Ziyan}}
+	\\date{\vspace{-0.8em} $4}
+	\\maketitle
+
+	\\tableofcontents
+		$5
+	\\end{document} 

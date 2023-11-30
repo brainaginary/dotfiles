@@ -72,3 +72,25 @@ set conceallevel=1              " Make code easier to read
 filetype plugin on
 syntax enable
 
+" C++ support " 
+autocmd BufNewFile,BufRead *.cpp set filetype=cpp
+
+function! CompileAndRun()
+  let fileName = expand('%')
+  if fileName =~ '\.cpp$'
+    let exeName = substitute(fileName, '\.cpp$', '', '')
+    execute 'w | !g++ -std=c++11 -Wall -Wextra -Wpedantic -O2 -o ' . exeName . ' ' . fileName
+    if v:shell_error == 0
+	  let cmd = "kitty -e bash -c './" . exeName . "; echo -e \"\nPress enter to exit...\"; read -p \"\"'"
+	  call system(cmd)
+	  redraw!
+    endif
+  else
+    echo 'Not a C++ file'
+  endif
+endfunction
+
+" Map keys to compile and run current file
+map <F1> :call CompileAndRun()<CR>
+map <F9> :w<CR>:!clear<CR>:call CompileAndRun()<CR>
+
