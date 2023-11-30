@@ -1,7 +1,9 @@
 # Dotfiles
 This repo contains my configurations for my desktop.
 
+## Screenshots
 
+They can be found in the `images` folder in this repo.
 
 ## Basic information
 Operating System: Arch Linux \
