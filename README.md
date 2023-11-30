@@ -1,9 +1,11 @@
 # Dotfiles
 This repo contains my configurations for my desktop.
 
+
+
 ## Basic information
 Operating System: Arch Linux \
-WM/DE: BSPWM + sxhkd + rofi\
+WM/DE: BSPWM + sxhkd + picom + rofi\
 Session type: X11 \
 Terminal: Kitty with ZSH\
 File manager: Thunar, Midnight Commander \
@@ -11,6 +13,7 @@ Notifications: dunst \
 Qt/GTK Theme + Colorscheme: Catppuccin Mocha \
 Bar: Polybar \
 Langauge input: fcitx5 \
+Browser: Firefox, Chromium\
 Text Editor: Neovim, Vscodium, Sublime Text 4 \
 Music Player: (pulseaudio) mpd + ncmpcpp + cava (visualiser)\
 Viewers: Viewnior + Digikam (Image), VLC (Video), zathura (pdf, djvu)
@@ -20,6 +23,13 @@ Others:
 feh to set wallpaper,
 amixer to set volume,
 xbacklight to set screen brightness
+
+### Packages to install
+A list of packages I have on my system can be found in the ```pacman.txt```
+file, generated using
+```pacman -Qeq > pacman.txt```.
+Not all packages are needed;
+discard some at your own discretion.
 
 ### ZSH/Terminal
 Im using ```zshautosuggestions``` and powerlevel10k (for prompts).
@@ -37,6 +47,10 @@ XMODIFIERS=@im=fcitx
 ```
 For easy configuration, use the Fcitx5 configuration tool (uses GUI).
 I use ```Pinyin``` for chinese and ```mosc``` for Japanese.
+
+### Browser
+Firefox with the Catppuccin Mocha theme.
+I also use ```penguinFox``` for a more minimalist look.
 
 ### Text Editors
 Each programming language has a main and backup text editor. \
@@ -108,6 +122,11 @@ then copy the mirrors to
 
 ### Polkit
 I use the xfce4 polkit manager.
+
+### VM
+VirtualBox.
+
+
 
 
 

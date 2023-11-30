@@ -29,8 +29,8 @@ conf(){
 			nvim .config/nvim/init.vim
 			;;
 		zsh|shell|.zshrc)
-			echo "General, Functions, or Aliases?"
-			echo "expected input: g,f,a"
+			echo "General or functions"
+			echo "expected input: g,f"
 			read -r input
 				case "$input" in
 					g|general|General)
@@ -38,9 +38,6 @@ conf(){
 						;;
 					f|funcs|Functions)
 						nvim .zsh_config/funcs.zsh
-						;;
-					a|aliases|Aliases)
-						nvim .zsh_config/aliases.zsh
 						;;
 				esac
 			;;
@@ -103,3 +100,20 @@ termstart(){
 	fi
 }
 
+wall() {
+	if [ $# -eq 0 ]; then
+    # If no argument is given, choose a random image from a directory
+		images_dir="$HOME/wp"
+		random_image=$(ls "$images_dir" | shuf -n 1)
+		background_path="$images_dir/$random_image"
+	else
+		background_path="$1"
+
+		if [ ! -f "$background_path" ]; then
+			echo "File invalid"
+			return
+		fi
+	fi
+	
+	feh --bg-scale "$background_path"
+}
