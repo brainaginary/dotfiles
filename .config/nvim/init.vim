@@ -11,6 +11,8 @@ call plug#begin()
   Plug 'nvim-tree/nvim-web-devicons'        " Nvim-web-devicons
   Plug 'ryanoasis/vim-devicons'
   Plug 'https://github.com/cohama/lexima.vim'
+  Plug 'sheerun/vim-polyglot' "syntax highlighting
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code autocompletion
 call plug#end()
 
 " General Settings "
@@ -22,6 +24,7 @@ set shiftwidth=4              " Set the number of spaces for auto-indentation
 set smarttab                  " Use shiftwidth for tab behavior
 set softtabstop=4             " Number of spaces to insert for a tab character
 set mouse=a                   " Enable mouse support
+set nocompatible			  " For vim-polygot
 
 " Leader Key "
 let mapleader = "\<Space>"
@@ -61,9 +64,9 @@ let g:livepreview_previewer = 'zathura'
 let g:tex_conceal='abdmg'         " Code concealing for LaTeX
 
 " UltiSnips Configuration "
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<s-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<s-tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-tab>'
 
 " Concealing Configuration "
 set conceallevel=1              " Make code easier to read
@@ -72,25 +75,38 @@ set conceallevel=1              " Make code easier to read
 filetype plugin on
 syntax enable
 
-" C++ support " 
+" Compile C++ file, binded to F1"
 autocmd BufNewFile,BufRead *.cpp set filetype=cpp
 
 function! CompileAndRun()
-  let fileName = expand('%')
-  if fileName =~ '\.cpp$'
-    let exeName = substitute(fileName, '\.cpp$', '', '')
-    execute 'w | !g++ -std=c++11 -Wall -Wextra -Wpedantic -O2 -o ' . exeName . ' ' . fileName
-    if v:shell_error == 0
-	  let cmd = "kitty -e bash -c './" . exeName . "; echo -e \"\nPress enter to exit...\"; read -p \"\"'"
-	  call system(cmd)
-	  redraw!
+    let fileName = expand('%')
+    if fileName =~ '\.cpp$'
+        let exeName = substitute(fileName, '\.cpp$', '', '')
+        execute 'w | vsplit | term g++ -std=c++11 -Wall -Wextra -Wpedantic -O2 -o ' . exeName . ' ' . fileName . ' && ./' . exeName
+        autocmd! TermEnter <buffer> startinsert
     endif
-  else
-    echo 'Not a C++ file'
-  endif
 endfunction
 
 " Map keys to compile and run current file
 map <F1> :call CompileAndRun()<CR>
-map <F9> :w<CR>:!clear<CR>:call CompileAndRun()<CR>
+
+" Map F2 to run Python file interactively in an integrated terminal
+nnoremap <F2> :call RunPythonFile()<CR>
+
+function! RunPythonFile()
+    " Get the path to the current file
+    let l:current_file = expand('%:p')
+
+    " Open an integrated terminal and run the Python file
+    execute 'vsplit | term python ' . l:current_file
+    startinsert
+endfunction
+
+" ======================= FOR CODE AUTOCOMPLETION ------------------------
+
+" Use return key to confirm completion
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+
+
 

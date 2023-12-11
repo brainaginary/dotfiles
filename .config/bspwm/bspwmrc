@@ -27,14 +27,14 @@ two_monitors_workspaces() {
 
 two_monitors_workspaces
 
-declare -a floating=(Thunar SimpleScreenRecorder)
+declare -a floating=(Thunar SimpleScreenRecorder qpaeq PulseEffects)
 for i in ${floating[@]}; do
    bspc rule -a $i state=floating follow=on focus=on; done
 
 bspc config border_width         2
-bspc config window_gap          12
+bspc config window_gap           15
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
@@ -61,6 +61,8 @@ bspc config pointer_action2 resize_corner
 # focus follows cursor placement
 bspc config focus_follows_pointer true
 
+# picom
+picom &
 
 # double monitor setup
 xrandr --output HDMI1 --right-of eDP1 &
@@ -76,9 +78,6 @@ nm-applet &
 
 # language input
 fcitx5 -d
-
-# wallpaper
-feh --bg-center ~/wp/test.png
 
 # mpd
 mpd &
@@ -117,3 +116,6 @@ xmodmap ~/.Xmodmap
 
 # xfce-4 powermanager
 xfce4-power-manager &
+
+# set wallpaper 
+feh --bg-scale ~/wp/ARCH.jpg

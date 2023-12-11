@@ -39,9 +39,16 @@ alt + shift + s
 alt + a
 	bspc node -t "~"{floating,tiled}
 
+# Toggle fullscreen
+alt + f 
+	bspc node -t '~fullscreen'
+
 # Switch workspace or Send focused Node to another workspace
-alt + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}' '--follow'
+alt + {_,shift + }{5-8}
+	bspc {desktop -f,node -d} '^{1-4}' '--follow'
+
+alt + {_,shift + }{1-4}
+	bspc {desktop -f,node -d} '^{5-8}' '--follow'
 
 # Change focus of the Node or Swap Nodes
 alt + {_,shift + }{Left,Down,Up,Right}
