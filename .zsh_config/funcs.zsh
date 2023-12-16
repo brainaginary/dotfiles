@@ -115,5 +115,5 @@ wall() {
 		fi
 	fi
 	
-	feh --bg-scale "$background_path"
+	feh --bg-fill "$background_path"
 }
