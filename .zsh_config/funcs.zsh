@@ -24,6 +24,7 @@ vpn() {
 
 # jump to config file
 conf(){
+	cd
 	case "$1" in 
 		nvim|neovim|vim|vi)
 			nvim .config/nvim/init.vim
@@ -49,6 +50,12 @@ conf(){
 			;;
 		keybindings|bind|sxhkd)
 			nvim .config/sxhkd/sxhkdrc
+			;;
+		polybar|bar)
+			nvim .config/polybar/config.ini
+			;;
+		picom)
+			nvim .config/picom/picom.conf
 			;;
 		help|h)
 			echo "options: nvim, zsh, kitty, bspwm, keybindings"
@@ -117,3 +124,37 @@ wall() {
 	
 	feh --bg-fill "$background_path"
 }
+
+mode() {
+  case "$1" in
+    "a" | "airplane")
+      nmcli networking off
+      echo "Airplane Mode turned on."
+      ;;
+    "off" | "normal")
+      nmcli networking on
+      echo "Airplane Mode turned off."
+      ;;
+    *)
+      echo "Invalid command. Please use 'a' or 'airplane' for on, 'off' or 'normal' for off."
+      ;;
+  esac
+}
+
+function master() {
+  echo "Custom Commands Cheatsheet:"
+  echo "---------------------------"
+  echo "1. mode [a|airplane|off|normal]"
+  echo "2. display_random_quote [|lightning]"
+  echo "3. wall [|path/to/img]"
+  echo "4. termstart"
+  echo "5. vpn"
+  echo "6. conf"
+}
+
+
+
+
+
+
+

@@ -57,6 +57,13 @@ alias timecheck='systemctl restart systemd-timesyncd'
 alias download='yt-dlp'
 alias mp3download='yt-dlp -x --audio-format mp3'
 
+# airplane mode 
+alias airplanemode='nmcli networking off; nmcli general'
+alias 'network mode'='nmcli networking on; nmcli general'
+
 # command correction
 eval $(thefuck --alias)
 
+# picom style
+alias opaque='sed -i 's/85:class_g/100:class_g/' ~/.config/picom/picom.conf'
+alias transparent='sed -i 's/100:class_g/85:class_g/' ~/.config/picom/picom.conf'
